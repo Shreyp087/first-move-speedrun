@@ -4,6 +4,10 @@ An independent product-engineering concept by Shrey Patel for the a16z speedrun 
 
 Choose a live role, attach a relevant work sample, and review an introduction before copying it.
 
+## The workbench
+
+![First Move workbench](preview.jpg)
+
 ## Run
 
 ```sh
