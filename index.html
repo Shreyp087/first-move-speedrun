@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>First Move | Put your work in the introduction</title>
+  <meta name="description" content="Choose a Speedrun role, attach a relevant work sample, and preview a clear introduction. An independent concept by Shrey Patel.">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@600&family=Red+Hat+Text:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#workbench">Skip to workbench</a>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a href="./" class="wordmark" aria-label="First Move home">First Move<span class="wordmark-square" aria-hidden="true"></span></a>
+      <span class="byline">A concept by <a href="https://github.com/Shreyp087" target="_blank" rel="noopener noreferrer">Shrey Patel</a></span>
+      <a class="text-link" href="#thinking">The thinking</a>
+    </div>
+  </header>
+  <main>
+    <div class="shell intro">
+      <div><h1>Give your work a way in.</h1><p>A relevant project makes a better first introduction.</p></div>
+      <div class="privacy-note">Try Shrey’s example or make it yours.<br>Edits stay in this tab. Nothing is sent.</div>
+    </div>
+    <nav class="shell progress-nav" aria-label="Build your introduction">
+      <a href="#roles-panel"><span class="step-num">1</span> Pick a role</a>
+      <a href="#proof-panel"><span class="step-num">2</span> Add your work</a>
+      <a href="#preview-panel"><span class="step-num">3</span> Review the intro</a>
+    </nav>
+    <div id="workbench" class="shell workbench">
+      <section id="roles-panel" class="roles-panel" aria-labelledby="roles-title">
+        <div class="panel-top"><h2 id="roles-title">Find a starting point</h2><button id="refresh" class="text-button" type="button">Refresh</button></div>
+        <p id="data-status" class="helper" role="status">Loading roles from Speedrun…</p>
+        <label for="role-search" class="visually-hidden">Filter loaded roles by title or company</label>
+        <div class="search-wrap"><input id="role-search" type="search" placeholder="Title or company" name="role-search" autocomplete="off"><span aria-hidden="true" class="search-icon"></span></div>
+        <div class="filter-line"><label class="check-label"><input id="remote-only" type="checkbox" name="remote-only"> Remote only</label><span id="role-count" class="small"></span></div>
+        <div id="role-list" class="role-list" aria-label="Roles" aria-busy="true">
+          <div class="loading-row">Finding the next conversation…</div>
+        </div>
+        <p class="source-link"><a href="https://speedrun-talent-network.com/jobs" target="_blank" rel="noopener noreferrer">Browse the complete jobs board</a></p>
+      </section>
+      <section id="proof-panel" class="proof-panel" aria-labelledby="proof-title">
+        <div class="panel-top"><h2 id="proof-title">Put your work forward</h2><button id="reset" class="text-button" type="button">Reset example</button></div>
+        <p class="helper">One project. Your contribution. A reason to talk.</p>
+        <form id="proof-form" data-endpoint="" novalidate>
+          <div class="field"><label for="candidate">Your name</label><input id="candidate" name="candidate" autocomplete="name" value="Shrey Patel" maxlength="100" required></div>
+          <div class="field"><label for="project">Work sample</label><select id="project" name="project"><option value="first-move">First Move</option><option value="aegis">Aegis Desk</option><option value="game">Chain Reaction</option><option value="custom">My own project</option></select></div>
+          <div class="field"><label for="project-name">Project name</label><input id="project-name" name="project-name" maxlength="120" autocomplete="off" required></div>
+          <div class="field"><label for="project-url">Project link</label><input id="project-url" name="project-url" type="url" inputmode="url" autocomplete="url" required aria-describedby="url-help"><p id="url-help" class="field-help">A public repo, product, or walkthrough.</p></div>
+          <div class="field"><label for="contribution">What did you personally build?</label><textarea id="contribution" name="contribution" rows="3" maxlength="550" required></textarea></div>
+          <div class="field"><label for="decision">One decision you can explain</label><textarea id="decision" name="decision" rows="2" maxlength="400" required></textarea></div>
+          <div class="field"><label for="relevance">Why this role?</label><textarea id="relevance" name="relevance" rows="2" maxlength="400" required aria-describedby="relevance-help"></textarea><p id="relevance-help" class="field-help" role="status">Keep this specific to the selected role.</p></div>
+          <div class="field"><label for="question">What should you clarify first?</label><input id="question" name="question" autocomplete="off" maxlength="240" value="Location, weekly hours, and contract duration."><p class="field-help">Keep unanswered questions visible.</p></div>
+        </form>
+      </section>
+      <section id="preview-panel" class="preview-panel" aria-labelledby="preview-title">
+        <div class="panel-top"><h2 id="preview-title">The first conversation</h2></div>
+        <p class="helper">A summary. Copying adds a greeting and full links.</p>
+        <article class="intro-sheet" aria-label="Introduction summary">
+          <div class="sheet-head"><span>Introduction summary</span><span class="paper-corner" aria-hidden="true"></span></div>
+          <div class="sheet-body">
+            <p id="preview-recipient" class="recipient"></p>
+            <h3 id="preview-name">Shrey Patel</h3>
+            <p id="preview-role" class="preview-role"></p>
+            <div class="intro-part"><h4>Relevant work</h4><a id="preview-project" target="_blank" rel="noopener noreferrer"></a><p id="preview-contribution"></p></div>
+            <div class="intro-part"><h4>A decision behind it</h4><p id="preview-decision"></p></div>
+            <div class="intro-part"><h4>Why a conversation makes sense</h4><p id="preview-relevance"></p></div>
+            <div class="open-question"><h4>To discuss</h4><p id="preview-question"></p></div>
+          </div>
+          <div class="sheet-foot"><a id="role-source" target="_blank" rel="noopener noreferrer">Check the original role</a></div>
+        </article>
+        <button id="copy" class="btn btn-primary" type="button">Copy introduction</button>
+        <p id="copy-status" class="field-help" role="status">Review the wording before you share it.</p>
+        <p class="disclosure">A draft you control. No fit score, automated application, or promised introduction.</p>
+      </section>
+    </div>
+    <section id="thinking" class="thinking shell" aria-labelledby="thinking-title">
+      <div class="thinking-open"><h2 id="thinking-title">Make the introduction worth making.</h2><p>Discovery is only the start. A link to relevant work, with clear ownership, gives both sides a better reason to talk.</p></div>
+      <div class="thinking-detail">
+        <details open><summary>Why build this for Speedrun?</summary><p>Speedrun already has role discovery, candidate profiles, and a talent team making introductions. This concept explores the handoff between them: help a candidate explain the work behind a profile before asking for someone’s time.</p></details>
+        <details><summary>What would I test first?</summary><p>Invite a small opt-in group to prepare one reviewed work sample. Compare completed intro requests and mutually accepted conversations with the existing flow. Ask founders whether the evidence helped them decide. Measure replies and spam complaints together; more messages alone would not prove success.</p></details>
+        <details><summary>What works in this prototype?</summary><p>Public role lookup, title and company filtering, a remote filter, editable project examples, a live introduction preview, and copy-to-clipboard. The text is assembled from your inputs without an AI model. There is no account, application submission, or connection to private founder tools.</p></details>
+        <details><summary>What happens to my information?</summary><p>Your edits stay in this tab’s memory and disappear when you reload or close it. Only public job requests go to Speedrun. No project text is sent, saved to a server, or put in the URL. If live roles fail to load, a dated public snapshot is clearly marked.</p></details>
+        <details><summary>What would I build next?</summary><p>Start with candidate and talent-team feedback. If this helps, connect it to the existing profile and intro workflow with explicit sharing consent, access controls, deletion, and role-availability checks. Validate a work sample’s relevance through human review before adding AI assistance.</p></details>
+      </div>
+    </section>
+  </main>
+  <footer class="shell footer"><p>Independent concept by <a href="https://github.com/Shreyp087" target="_blank" rel="noopener noreferrer">Shrey Patel</a>. Not an official Speedrun product.</p><a href="https://speedrun-talent-network.com/developers" target="_blank" rel="noopener noreferrer">Public API documentation</a></footer>
+  <noscript><p class="shell no-script">Enable JavaScript to choose roles and edit the introduction. You can still <a href="https://speedrun-talent-network.com/jobs">browse Speedrun’s jobs board</a> and read the product thinking below.</p></noscript>
+</body>
+</html>
